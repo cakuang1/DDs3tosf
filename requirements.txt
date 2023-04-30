@@ -1,0 +1,13 @@
+boto3
+flask
+fsspec
+numpy
+pandas
+pyarrow
+pytest
+requests
+s3fs
+sklearn
+jupyter
+matplotlib
+seaborn
