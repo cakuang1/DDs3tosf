@@ -6,9 +6,51 @@ import s3fs
 import typing
 
 
+
 ## Helpeer file for everything IO related (S3 data retrieval,snowflake import)
 
-BUCKET = ""
+BUCKET = "dd-tran-data"
+
+
+
+def initial_setup():
+    """
+    Parses the csv file by month and day and stores into the bucket 'dd-tran-data'
+
+    Arguments : 
+        None  
+
+    Returns : 
+        None 
+    
+    """
+
+    df = pd.read_csv()
+    
+
+
+
+    
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 def imp_file(month,day,year):
