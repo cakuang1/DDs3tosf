@@ -12,13 +12,18 @@ Fairly simple ETL pipeline that imports c
 
 The entire dataset comes from <a ahref = "">here.</a> The data is ismply
 
-<b>NOTE</b> I belive this dataset is purely synthetic. I am simply using the data set as a way to work with transactional data.
+<b>NOTE</b> I believe this dataset is purely synthetic. I am simply using the data set as a way to work with transactional data. Thus, I am adding certain columns that might 
 
 
 
 ## Getting Started
 
+
+
+
 ### Requirements
+
+
 
 
 
@@ -30,6 +35,8 @@ The entire dataset comes from <a ahref = "">here.</a> The data is ismply
 
 
 ## Dataset Description
+
+We are dealing with DoorDash transactional data. Each row represents a doordash order.
 
 
 
@@ -47,15 +54,9 @@ The entire dataset comes from <a ahref = "">here.</a> The data is ismply
 | Is_ASAP | Customer included|
 | Order_total | The total Order amount  |
 | Amount_of_discount | Discounted amount towards the Order | 
-| Amount_of_tip| Miscellaneous extras and surcharges. Currently, this only includes the $0.50 and $1 rush hour and overnight charges. |
-| Refunded_amount | $0.50 MTA tax that is automatically triggered based on the metered rate in use. | 
-| Total_time_elapsed | Total time elapsed | 
+| Amount_of_tip| Total amount of tips the customer gave|
+| Refunded_amount | The amount refunded  | 
+| Total_time_elapsed | Total time it took for the order to be delivered after the customer placed the order | 
 
 
-Index(['Unnamed: 0', 'Customer_placed_order_datetime',
-       'Placed_order_with_restaurant_datetime',
-       'Driver_at_restaurant_datetime', 'Delivered_to_consumer_datetime',
-       'Driver_ID', 'Restaurant_ID', 'Consumer_ID', 'Is_New',
-       'Delivery_Region', 'Is_ASAP', 'Order_total', 'Amount_of_discount',
-       'Amount_of_tip', 'Refunded_amount', 'Total_time_elapsed'],
-      dtype='object')
+
