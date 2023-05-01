@@ -22,12 +22,23 @@ The entire dataset comes from <a ahref = "">here.</a> The data is ismply
 
 
 ### Requirements
-
     -AWS account(IAM user with full access to S3)
         -AWS_ACCESS_KEY_ID
         -AWS_SECRET_ACCESS_KEY
     -SnowFlake account(Used the free trial)
+### Setup
     
+    1. Setup your credentials file
+        - Linux and macOS	
+            - Location of file is ~/.aws/credentials
+        -Windows
+            -
+    Your code should look the 
+
+    2. Run the inti
+
+
+
 
 
 

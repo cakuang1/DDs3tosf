@@ -1,7 +1,5 @@
 import boto3
-import os
 import pandas as pd
-import pickle
 import s3fs
 import typing
 
@@ -11,74 +9,48 @@ import typing
 
 BUCKET = "dd-tran-data"
 
-def initial_setup():
-    """
-    Parses the csv file by month and day and stores into the bucket 'dd-tran-data'
+
+def imp_file(bucketname,directory,filename):
+    """    
+    Imports CSV file from S3 into a pandas dataframe
+
 
     Arguments : 
-        None  
-
-    Returns : 
-        None 
-    
-    """
-
-    url = 'https://raw.githubusercontent.com/ralfsantacruz/Doordash-Analytics/master/resources/analytics.csv'
-    df = pd.read_csv(url)
-
-
-    df["Day"] = df['Customer_placed_order_datetime'].str[:2]
-    s3 = boto3.resource('s3')
-    
-    
-
-    
-
-
-
-    
-    
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-def imp_file(day,directory):
-    """        
-    Arguments : 
-        month (str): month of t  
+        bucketname (str) : The bucket name
+        filename (str): The filename
+        directory(str): There directory where the file is located   
 
     Returns : 
         pd.Dataframe: Dataframe from the 
     """
+    path = 's3://' + bucketname +  '/' + directory + '/' + filename + '.csv'
 
-    
-    s3_client = boto3.client('s3')
-    df.to_csv('s3://experimental/playground/temp_csv/dummy.csv', index=False)
+    df = pd.read_csv(path)
 
-
-
-
-
-    return pd.read_csv(file)
+    return df
 
 
 
 
-def save_output():
+def save_file(bucketname,directory,filename,df):
+    """        
+    Saves pandas data frame into
+
+
+    Arguments : 
+        bucketname (str) : The bucket name
+        directory(str): There directory where the file is located   
+        filename (str): The filename
+
+    Returns : 
+        None
+    """
+
+    path = 's3://' + bucketname +  '/' + directory + '/' + filename + '.csv'
+    df.to_csv(path)
+    return None
+
+
 
 
 
