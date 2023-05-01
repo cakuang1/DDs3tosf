@@ -3,7 +3,7 @@
 
 ## About 
 
-Fairly simple ETL pipeline that imports c 
+Fairly simple ETL pipeline that mimics a batch processing ETL pipeline. 
 
 
 
@@ -23,12 +23,29 @@ The entire dataset comes from <a ahref = "">here.</a> The data is ismply
 
 ### Requirements
 
+    -AWS account(IAM user with full access to S3)
+        -AWS_ACCESS_KEY_ID
+        -AWS_SECRET_ACCESS_KEY
+    -SnowFlake account(Used the free trial)
+    
 
 
 
 
 
-## Pipe-Line Components
+
+
+
+
+
+
+
+
+
+
+
+    
+
 
 
 
@@ -57,6 +74,23 @@ We are dealing with DoorDash transactional data. Each row represents a doordash 
 | Amount_of_tip| Total amount of tips the customer gave|
 | Refunded_amount | The amount refunded  | 
 | Total_time_elapsed | Total time it took for the order to be delivered after the customer placed the order | 
+
+
+
+## S3 description
+
+# Bucket has three directories
+| Directory    | Description |
+| ----------- | ----------- |
+| Customer_placed_order_datetime      | The data and time when the customer placed the order |
+| Driver_at_restaurant_datetime  | The date and time when the driver arrived at the restaurant|
+| Delivered_to_consumer_datetime   | The date and time when the food was delivered to the consumer    |
+| Driver_ID   | The ID of the Driver      |
+
+
+
+
+## Pipe-Line Components
 
 
 
