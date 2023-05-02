@@ -1,21 +1,15 @@
 from utils.helpers import timetostring
-
-def removena(df):
-    newframe = 
-    return newframe    
+from utils.io import imp_file
 
 
 
 
 def main():
-
-
-
-
-
-
-
     rangeofdays = range(1,32)
+    for i in rangeofdays:
+        df = imp_file()
+        
+
 
 
 

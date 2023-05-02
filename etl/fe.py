@@ -4,11 +4,11 @@ def main():
     rangeofdays = range(1,32)
 
     for i in rangeofdays:
-        
+            
 
 
 
-    # Write "clean" df to s3
+    
 
     return    
 

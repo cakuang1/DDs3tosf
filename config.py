@@ -1,0 +1,4 @@
+BUCKET_NAME = ""
+LOCATION = ""
+
+
