@@ -1,13 +1,23 @@
 from utils.helpers import timetostring
-from utils.io import imp_file
-
+from io import imp_file,save_file
+import config
 
 
 
 def main():
     rangeofdays = range(1,32)
+    bucketname = config.BUCKET_NAME 
+    impdirectory = 'raw'
+    outdirectory  = 'cleaned'
+    str = timetostring()
     for i in rangeofdays:
-        df = imp_file()
+        filename = str(i)
+
+        ##Import csv file from the raw directory 
+        df = imp_file(bucketname,impdirectory,filename)
+               
+        ##Transform
+        
         
 
 
@@ -17,25 +27,13 @@ def main():
 
 
 
+        # Write "clean" df to s3
+        save_file(bucketname,outdirectory, filename + ' ' +  str)
 
+    
 
-    # Write "clean" df to s3
-
-
-
-
-
-
-
-
-
-
-
+    print("Your data has been cleansed.")
     return    
-
-
-
-
 
 
 

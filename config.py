@@ -1,4 +1,5 @@
-BUCKET_NAME = ""
-LOCATION = ""
+AWS_REGION = "us-west-1"
+BUCKET_NAME = 'ddsfpipeline'
+
 
 

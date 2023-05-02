@@ -2,15 +2,17 @@ import boto3
 import pandas as pd
 import s3fs
 import typing
+import config
 
 
 
 ## Helpeer file for everything IO related (S3 data retrieval,snowflake import)
 
-BUCKET = "dd-tran-data"
+bucketname = config.BUCKET_NAME
 
+pathprefix = 's3://' + bucketname
 
-def imp_file(bucketname,directory,filename):
+def imp_file(directory,filename):
     """    
     Imports CSV file from S3 into a pandas dataframe
 
@@ -23,7 +25,7 @@ def imp_file(bucketname,directory,filename):
     Returns : 
         pd.Dataframe: Dataframe from the 
     """
-    path = 's3://' + bucketname +  '/' + directory + '/' + filename + '.csv'
+    path = pathprefix +  '/' + directory + '/' + filename + '.csv'
 
     df = pd.read_csv(path)
 
@@ -32,7 +34,7 @@ def imp_file(bucketname,directory,filename):
 
 
 
-def save_file(bucketname,directory,filename,df):
+def save_file(directory,filename,df):
     """        
     Saves pandas data frame into
 
@@ -46,11 +48,25 @@ def save_file(bucketname,directory,filename,df):
         None
     """
 
-    path = 's3://' + bucketname +  '/' + directory + '/' + filename + '.csv'
+    path = pathprefix +  '/' + directory + '/' + filename + '.csv'
     df.to_csv(path)
     return None
 
 
+def listfiles(directory):
+    """
+    Given some prefix after the bucket name, list all files in that directory
 
-
-
+    Args:
+        prefix (str): folder or directory to search, relative to the bucket name.
+    Returns:
+        List[str]: list of strings corresponding to the immediate files in the directory specified.
+    """
+    s3 = boto3.resource('s3')
+    bucket_name = config.BUCKET_NAME
+    prefix = directory
+    bucket = s3.Bucket(bucket_name)
+    holder = []
+    for obj in bucket.objects.filter(Prefix=prefix):
+        holder.append(obj.key)
+    return holder
