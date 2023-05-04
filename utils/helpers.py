@@ -83,3 +83,22 @@ def get_total_minutes(time_str):
 
 
 
+def datavalidate(df):
+    """
+   
+    Validates df for the production level. Will give an AssertionError if 
+  
+    Arguments : 
+        df (pd.DataFrame): The dataframe you want validate
+
+    Returns : 
+        None
+    """
+
+
+
+    ## Checks if fields contain Nan values
+    assert not df.isnull().any().any(), "DataFrame contains NaN values: {}".format(df.isnull().sum())
+    print('Your data does not contain any NaN values')
+    
+

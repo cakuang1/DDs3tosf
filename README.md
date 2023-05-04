@@ -3,7 +3,8 @@
 
 ## About 
 
-Fairly simple ETL pipeline that mimics a batch processing ETL pipeline. 
+A manual step-by-step data pipeline that extracts data files from and 
+
 
 
 
