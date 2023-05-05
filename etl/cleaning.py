@@ -11,8 +11,11 @@
 import sys
 import os
 sys.path.append(os.path.abspath('../utils'))
-from utils import helpers
-import config
+from utils import io
+
+
+
+
 
 
 
@@ -24,7 +27,7 @@ def main():
     outdirectory  = 'clean'
     str = timetostring()
     #Import csv file from the raw directory 
-    df = imp_file(impdirectory,filename)
+    df = io.imp_file(impdirectory,filename)
         
     #Cleaning
 
@@ -33,7 +36,7 @@ def main():
 
     # Write "clean" df to s3
     
-    save_file(outdirectory, filename,df)
+    io.save_file(outdirectory, filename,df)
 
     print("Your data has been cleansed and uploaded in the /clean directory with the filename : " + filename )
     return    

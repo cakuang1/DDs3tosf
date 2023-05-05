@@ -1,5 +1,7 @@
-from utils.helpers import timetostring
-from . import io
+import sys
+import os
+sys.path.append(os.path.abspath('../utils'))
+from utils import io
 
 
 """
@@ -19,23 +21,14 @@ def main():
     outdirectory  = 'feateng'
 
     ##Import csv file from the raw directory 
-    df = imp_file(impdirectory,filename)
-    
-
-
-    
-
-
-
+    df = io.imp_file(impdirectory,filename)
 
 
 
 
 
     # Write "feature engineered" df to s3
-    save_file(outdirectory, filename)
-
-
+    io.save_file(outdirectory, filename)
 
 
     print("Your data has been cleansed and uploaded with the filename : " )

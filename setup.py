@@ -2,7 +2,8 @@
 
 import pandas as pd
 import boto3
-import config
+import os
+from dotenv import load_dotenv
 from utils.io import save_file
 import snowflake.connector
 
@@ -21,9 +22,6 @@ def main():
     Script that populates raw S3 bucket. This assigns each row arbitrarily a day from 1-31, representing a day in 
 
     """
-
-
-    
     ### S3 Setup
     client = boto3.client("s3", region_name=AWS_REGION)
 
