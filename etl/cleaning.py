@@ -1,3 +1,6 @@
+
+
+
 """
     
     This script imports a chosen file from the 'raw' directory in our s3 bucket, cleans it, then uploads the file as a csv to '/clean' directory.
@@ -12,9 +15,6 @@ import sys
 import os
 sys.path.append(os.path.abspath('../utils'))
 from utils import io
-
-
-
 
 
 

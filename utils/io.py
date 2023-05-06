@@ -2,7 +2,8 @@ import boto3
 import pandas as pd
 import s3fs
 import typing
-import config
+import os
+from dotenv import load_dotenv
 
 
 
@@ -63,7 +64,7 @@ def listfiles(directory):
         List[str]: list of strings corresponding to the immediate files in the directory specified.
     """
     s3 = boto3.resource('s3')
-    bucket_name = config.BUCKET_NAME
+
     prefix = directory
     bucket = s3.Bucket(bucket_name)
     holder = []

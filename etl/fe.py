@@ -1,7 +1,7 @@
 import sys
 import os
 sys.path.append(os.path.abspath('../utils'))
-from utils import io
+from utils import io,helpers
 
 
 """
@@ -24,15 +24,16 @@ def main():
     df = io.imp_file(impdirectory,filename)
 
 
-
-
+    ##Feature Engineering
+    v1 = helpers.addminutefield(df)
+    v2 = helpers.get_total_minutes(v1)
+    v3= helpers.addresponse(v2)
 
     # Write "feature engineered" df to s3
-    io.save_file(outdirectory, filename)
-
-
-    print("Your data has been cleansed and uploaded with the filename : " )
-    return    
+    io.save_file(outdirectory, filename,v3)
+    
+    print("Your data has now has new fields! : " )
+    return  
 
 
 
