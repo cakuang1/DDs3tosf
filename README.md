@@ -38,13 +38,12 @@ We are dealing with DoorDash transactional data. Each row represents a doordash 
 ## S3 description
 
 ### The bucket contains 3 directories
+
 | Directory    | Description |
 | ----------- | ----------- |
-| `raw`    | The initial directory that was created in our setup script. Contains all the raw files. For convienience, the filenames are simply  |
-| `clean` | Contains cleaned files |
-| `feateng` | The date and time when the driver arrived at the restaurant|
-
-
+| raw    | The initial directory that was created in our setup script. Contains all the raw files. For convienience, the filenames are simply  |
+| clean | Contains cleaned files |
+| feateng | The date and time when the driver arrived at the restaurant|
 
 
 
@@ -59,7 +58,6 @@ We are dealing with DoorDash transactional data. Each row represents a doordash 
 
 
 ## Getting Started
-
 
 ### Requirements
     -AWS account (IAM user with full access to S3). You need:
@@ -93,21 +91,13 @@ BUCKET_NAME = 'ddsfpipeline'
 docker build -t myimage:latest 
 ```
 
-3. Run the 
+3. Run the docker 
+
+
 
 
 
 ## Running the pipeline 
-
-```
-
-
-
-```
-
-
-
-
 
 
 ## Data Source
