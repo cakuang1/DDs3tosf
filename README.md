@@ -91,23 +91,22 @@ BUCKET_NAME = 'ddsfpipeline'
 docker build -t myimage:latest 
 ```
 
-3. Using the new container, you are able to run the scripts in the containerized command line. Now you can run the setup file using this commandline.
+3. Using the new container, you are able to run the scripts in the containerized command line. Now you can run the setup file using this command line.
 
 ```
 python3 setup.py
 ```
 
-4. Run the pipeline.
+
+
+### Running the pipeline 
+Using the same containerized command line, you can now run the 3 scripts in order.
+
 ```
-python3 setup.py
+python3 /etl/cleaning.py
+python3 /etl/fe.py
+python3 /etl/push.py
 ```
-
-
-
-
-
-## Running the pipeline 
-
 
 ## Data Source
 
