@@ -52,9 +52,9 @@ We are dealing with DoorDash transactional data. Each row represents a doordash 
 
 | script   | purpose | how to run |
 | ----------- | ----------- |
-| cleaning.py   <filename>   | pulls the file from the `raw` directory, cleanses it, and saves the copy to `clean`| |
-| fe.py <filename>| pulls the file from the `clean` directory, adds needed fileds, and saves the copy to `feateng`| |
-| push.py  <filename> | imports file and validates data. If data is validated, push into warehouse| |
+| cleaning.py     | pulls the file from the `raw` directory, cleanses it, and saves the copy to `clean`| |
+| fe.py  pulls the file from the `clean` directory, adds needed fileds, and saves the copy to `feateng`| |
+| push.py  | imports file and validates data. If data is validated, push into warehouse| |
 
 
 ## Getting Started
@@ -85,13 +85,22 @@ BUCKET_NAME = 'ddsfpipeline'
 
 ```
 
-2. Build your docker image using the command
+2. Build your docker image using the command. This sets up the environment.
 
 ```
 docker build -t myimage:latest 
 ```
 
-3. Run the docker 
+3. Using the new container, you are able to run the scripts in the containerized command line. Now you can run the setup file using this commandline.
+
+```
+python3 setup.py
+```
+
+4. Run the pipeline.
+```
+python3 setup.py
+```
 
 
 
@@ -102,8 +111,6 @@ docker build -t myimage:latest
 
 ## Data Source
 
-
-The entire dataset comes from <a ahref = "">here.</a> The data 
 
 <b>NOTE</b> I believe this dataset is purely synthetic. I am simply using the data set as a way to work with transactional data. Since I am creating this project for learning purposes, the actual data does not really matter. (Any dataset could work)
 
@@ -117,6 +124,10 @@ The entire dataset comes from <a ahref = "">here.</a> The data
 - Containerization : [Docker](https://www.docker.com/)
 <b>
 
+
+## Future work
+
+-Automating the pipeline using a cron job or using an Orchestration tool such as airflow
 
 
 
