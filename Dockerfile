@@ -8,9 +8,9 @@ RUN pip install -r /requirements.txt
 
 COPY utils /utils
 COPY setup.py /
-COPY script1.py /etl/cleaning.py
-COPY script2.py /etl/fe.py
-COPY script2.py /etl/push.py
+COPY cleaning.py /etl/cleaning.py
+COPY fe.py /etl/fe.py
+COPY push.py /etl/push.py
 
 
 
